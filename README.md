@@ -174,7 +174,7 @@ Because the test set contains only held-out positive interactions, the denominat
 Diversity is computed from the top-50 recommended items regardless of relevance. Using an item-item cosine similarity matrix derived from the training data, intra-list diversity is defined as
 
 $$
-\mathrm{Diversity}@50(L_u) = 1 - \frac{1}{\binom{50}{2}} \sum_{i<j,\; i,j \in L_u} S(i,j)
+\mathrm{Diversity@50}(L_u) = 1 - \frac{1}{\binom{50}{2}} \sum_{i<j,\; i,j \in L_u} S(i,j)
 $$
 
 where \(S(i,j)\) is the similarity between recommended assets \(i\) and \(j\). Higher values indicate less redundancy within the recommendation list. If fewer than two items are recommended, diversity is set to \(0\). The seed-level Diversity@50 is the mean of user-level diversity values.
