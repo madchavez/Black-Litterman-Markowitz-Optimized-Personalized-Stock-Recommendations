@@ -150,18 +150,13 @@ $$
 Discounted Cumulative Gain is computed as
 
 $$
-\mathrm{DCG@50}_u
-=
-\sum_{j=1}^{50}
-\frac{rel_{uj}}{\log_2(j+1)}.
+\mathrm{DCG@50}_u = \sum_{j=1}^{50}\frac{rel_{uj}}{\log_2(j+1)}.
 $$
 
 This is normalized by the Ideal DCG, computed by placing all of that user's held-out relevant items first within the same candidate set:
 
 $$
-\mathrm{NDCG@50}_u
-=
-\frac{\mathrm{DCG@50}_u}{\mathrm{IDCG@50}_u}.
+\mathrm{NDCG@50}_u = \frac{\mathrm{DCG@50}_u}{\mathrm{IDCG@50}_u}.
 $$
 
 If a user has no relevant held-out item, the value is treated as missing. The model's seed-level NDCG@50 is the mean of valid user-level NDCG@50 values.
@@ -170,10 +165,7 @@ If a user has no relevant held-out item, the value is treated as missing. The mo
 Recall is computed from the same ranked relevance vector:
 
 $$
-\mathrm{Recall@50}_u
-=
-\frac{\text{number of held-out relevant items appearing in the top 50}}
-{\text{total number of held-out relevant items for user } u}.
+\mathrm{Recall@50}_u = \frac{\text{number of held-out relevant items appearing in the top 50}} {\text{total number of held-out relevant items for user } u}.
 $$
 
 Because the test set contains only held-out positive interactions, the denominator is simply the number of hidden bullish assets for that user. Users with no held-out positive item are excluded, and the seed-level Recall@50 is the mean across valid users.
@@ -182,10 +174,7 @@ Because the test set contains only held-out positive interactions, the denominat
 Diversity is computed from the top-50 recommended items regardless of relevance. Using an item-item cosine similarity matrix derived from the training data, intra-list diversity is defined as
 
 $$
-\mathrm{Diversity@50}(L_u)
-=
-1 - \frac{1}{\binom{50}{2}}
-\sum_{i<j,\; i,j \in L_u} S(i,j),
+\mathrm{Diversity@50}(L_u) = 1 - \frac{1}{\binom{50}{2}}\sum_{i<j,\; i,j \in L_u} S(i,j),
 $$
 
 where \(S(i,j)\) is the similarity between recommended assets \(i\) and \(j\). Higher values indicate less redundancy within the recommendation list. If fewer than two items are recommended, diversity is set to \(0\). The seed-level Diversity@50 is the mean of user-level diversity values.
