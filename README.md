@@ -90,7 +90,7 @@ $$
 then the holdout set $\mathcal{H}_u \subseteq \mathcal{P}_u$ is sampled such that
 
 $$
-|\mathcal{H}_u| = \max\left(1, \left\lfloor \text{test\_frac} \cdot |\mathcal{P}_u| \right\rfloor \right).
+|\mathcal{H}_u| = \max\left(1, \left\lfloor \text{test\\_frac} \cdot |\mathcal{P}_u| \right\rfloor \right).
 $$
 
 During evaluation, only items unobserved in training are recommendable:
